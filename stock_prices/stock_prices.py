@@ -3,8 +3,25 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  #Receives a list of stock prices
+  #Return the maximum profit that can be made from a single buy and sell.
+  #You must buy first before selling; no shorting is allowed here.
 
+  x = 0
+  z = 0
+  max_profit = None;
+
+  while x < len(prices):
+    while z < len(prices):
+      if not max_profit:
+        max_profit = prices[z] - prices[x]
+      elif x != z and x < z and prices[z] - prices[x] > max_profit:
+        max_profit = prices[z] - prices[x]
+      z += 1
+    x += 1
+    z = 0
+
+  return max_profit
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
