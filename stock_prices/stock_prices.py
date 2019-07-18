@@ -9,8 +9,7 @@ def find_max_profit(prices):
 
   x = 0
   z = 0
-  max_profit = None;
-
+  max_profit = None
   while x < len(prices):
     while z < len(prices):
       if not max_profit:
