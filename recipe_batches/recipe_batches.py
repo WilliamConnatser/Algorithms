@@ -3,8 +3,21 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  batches = 0
+  still_cooking = True
+  while still_cooking:
+    ingredients_added = 0
+    for item in recipe.items():
+      if item[0] not in ingredients:
+        still_cooking = False
+      elif ingredients[item[0]] < item[1]:
+        still_cooking = False
+      else:
+        ingredients[item[0]] -= item[1]
+        ingredients_added += 1
+        if ingredients_added == len(recipe.keys()):
+           batches += 1
+  return batches
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
